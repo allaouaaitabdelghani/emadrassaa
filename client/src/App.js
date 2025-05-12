@@ -17,7 +17,7 @@ import "./App.css";
 import Dashboard3 from "components/Dashboard3";
 import Teacher from "./components/teacher";
 import Teacher2 from "./components/teacher2";
-
+import Course from "./components/course";
 
 
 
@@ -36,6 +36,7 @@ function App() {
           <Route path="/contact" element={<ContactSection />} />
           <Route path="/teacher" element={<Teacher />} />
           <Route path="/teacher2" element={<Teacher2 />} />
+          <Route path="/course" element={<Course />} />
 
         </Routes>
       </div>

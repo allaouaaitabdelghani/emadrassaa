@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Facebook, Instagram, Linkedin, ChevronLeft, ChevronRight, MapPin, Phone, Mail, Clock, Menu, X } from 'lucide-react';
+import Navbar4 from "./navbar4";
 
 function LandingPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -17,79 +18,7 @@ function LandingPage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Navigation bar */}
-      <header className="sticky top-0 z-50 w-full bg-[#002b4d]">
-        <div className="container mx-auto px-4 sm:px-6">
-          <div className="flex h-20 items-center justify-between">
-            <div className="flex items-center">
-              <Link to="/" className="flex items-center">
-                <img src="/Vector.svg" alt="Madrasati" className="h-8 sm:h-10" />
-                <span className="ml-2 sm:ml-3 text-xl sm:text-2xl font-bold text-white">Madrasati</span>
-              </Link>
-            </div>
-
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex justify-center flex-1">
-              <div className="flex items-center space-x-8 lg:space-x-12">
-                <a href="#" className="text-white hover:text-gray-300 text-base lg:text-lg font-medium">Home</a>
-                <a href="#contact" className="text-white hover:text-gray-300 text-base lg:text-lg font-medium">Contact us</a>
-                <Link to="/teacher" className="text-white hover:text-gray-300 text-base lg:text-lg font-medium">Teachers</Link>
-                <Link to="/courses" className="text-white hover:text-gray-300 text-base lg:text-lg font-medium">Courses</Link>
-              </div>
-            </nav>
-            
-            {/* Desktop Profile */}
-            <div className="hidden md:flex items-center">
-              <div className="flex items-center">
-                <img
-                  className="h-10 w-10 sm:h-14 sm:w-14 rounded-full border-2 border-white"
-                  src="/profile.svg"
-                  alt="Profile"
-                />
-                <Link 
-                  to="/dashboard" 
-                  className="ml-3 px-4 py-2 text-base lg:text-lg font-medium text-white hover:text-gray-300 transition-colors"
-                >
-                  Khenfer Hicham
-                </Link>
-              </div>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button 
-              className="md:hidden text-white p-2"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-
-          {/* Mobile Menu */}
-          {isMobileMenuOpen && (
-            <div className="md:hidden bg-[#002b4d] py-4 px-4">
-              <nav className="flex flex-col space-y-4">
-                <a href="#" className="text-white hover:text-gray-300 text-lg font-medium">Home</a>
-                <a href="#contact" className="text-white hover:text-gray-300 text-lg font-medium">Contact us</a>
-                <Link to="/teacher" className="text-white hover:text-gray-300 text-lg font-medium">Teachers</Link>
-                <Link to="/courses" className="text-white hover:text-gray-300 text-lg font-medium">Courses</Link>
-                <div className="flex items-center pt-4 border-t border-gray-700">
-                  <img
-                    className="h-10 w-10 rounded-full border-2 border-white"
-                    src="/profile.svg"
-                    alt="Profile"
-                  />
-                  <Link 
-                    to="/dashboard" 
-                    className="ml-3 text-lg font-medium text-white hover:text-gray-300 transition-colors"
-                  >
-                    Khenfer Hicham
-                  </Link>
-                </div>
-              </nav>
-            </div>
-          )}
-        </div>
-      </header>
+      <Navbar4 />
 
       <main>
         {/* Hero section */}

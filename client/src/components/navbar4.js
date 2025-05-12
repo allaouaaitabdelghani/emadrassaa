@@ -11,18 +11,23 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           {/* Logo and Brand */}
           <div className="flex items-center">
-            <img src="/Vector.svg" alt="Madrasati" className="h-8 sm:h-10" />
-            <span className="ml-3 text-xl sm:text-2xl font-bold text-white">Madrasati</span>
+            <Link to="/" className="flex items-center">
+              <img src="/Vector.svg" alt="Madrasati" className="h-8 sm:h-10" />
+              <span className="ml-2 text-xl sm:text-2xl font-bold text-white">Madrasati</span>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            <Link to="/" className="text-white hover:text-gray-300 text-base lg:text-lg font-medium transition-colors">
+            <Link to="/" onClick={e => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="text-white hover:text-gray-300 text-base lg:text-lg font-medium transition-colors">
               Home
             </Link>
-            <Link 
-              to="/" 
-              onClick={() => { window.location.href = '/#contact'; }} 
+            <Link
+              to="/"
+              onClick={e => {
+                e.preventDefault();
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+              }}
               className="text-white hover:text-gray-300 text-base lg:text-lg font-medium transition-colors"
             >
               Contact us
@@ -30,13 +35,9 @@ export default function Navbar() {
             <Link to="/teacher" className="text-white hover:text-gray-300 text-base lg:text-lg font-medium transition-colors">
               Teachers
             </Link>
-            <Link 
-            to="/course" 
-            className="block text-white hover:text-gray-300 text-base font-medium transition-colors"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Courses
-          </Link>
+            <Link to="/course" className="text-white hover:text-gray-300 text-base lg:text-lg font-medium transition-colors">
+              Courses
+            </Link>
           </div>
 
           {/* Profile Section */}
@@ -98,7 +99,7 @@ export default function Navbar() {
             Teachers
           </Link>
           <Link 
-            to="/courses" 
+            to="/course" 
             className="block text-white hover:text-gray-300 text-base font-medium transition-colors"
             onClick={() => setIsMenuOpen(false)}
           >

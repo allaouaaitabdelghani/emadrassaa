@@ -6,7 +6,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-[#002b4d] py-4 px-4 sm:px-6 lg:px-8">
+    <nav className="bg-[#002b4d] py-4 px-4 sm:px-6 lg:px-8 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center">
           {/* Logo and Brand */}
@@ -32,9 +32,13 @@ export default function Navbar() {
             <Link to="/teacher" className="text-white hover:text-gray-300 text-base lg:text-lg font-medium transition-colors">
               Teachers
             </Link>
-            <Link to="/courses" className="text-white hover:text-gray-300 text-base lg:text-lg font-medium transition-colors">
-              Courses
-            </Link>
+            <Link 
+            to="/course" 
+            className="block text-white hover:text-gray-300 text-base font-medium transition-colors"
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Courses
+          </Link>
           </div>
 
           {/* Profile Section */}
@@ -44,12 +48,12 @@ export default function Navbar() {
               src="/profile.svg"
               alt="Profile"
             />
-            <a 
-              href="#" 
+            <Link 
+              to="/dashboard" 
               className="ml-3 px-4 py-2 text-base lg:text-lg font-medium text-white hover:text-gray-300 transition-colors"
             >
               Khenfer Hicham
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -96,7 +100,7 @@ export default function Navbar() {
             Teachers
           </Link>
           <Link 
-            to="/courses" 
+            to="/course" 
             className="block text-white hover:text-gray-300 text-base font-medium transition-colors"
             onClick={() => setIsMenuOpen(false)}
           >
@@ -108,13 +112,13 @@ export default function Navbar() {
               src="/profile.svg"
               alt="Profile"
             />
-            <a 
-              href="#" 
+            <Link 
+              to="/dashboard" 
               className="ml-3 text-base font-medium text-white hover:text-gray-300 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Khenfer Hicham
-            </a>
+            </Link>
           </div>
         </div>
       </div>
