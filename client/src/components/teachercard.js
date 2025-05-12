@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const TeacherCardProps = {
   teacher: {
@@ -8,7 +9,7 @@ const TeacherCardProps = {
   }
 }
 
-export default function TeacherCard({ teacher }) {
+function TeacherCard({ teacher }) {
   return (
     <div className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center">
       <img
@@ -18,12 +19,13 @@ export default function TeacherCard({ teacher }) {
       />
       <h3 className="text-xl font-bold text-[#002b44] mb-2">{teacher.name}</h3>
       <p className="text-gray-600 mb-4">{teacher.subject}</p>
-      <a
-        href="#"
+      <Link
+        to="/teacher2"
         className="px-4 py-2 border-2 border-[#002b44] text-[#002b44] rounded-md hover:bg-[#002b44] hover:text-white transition-colors"
       >
         See More
-      </a>
+      </Link>
     </div>
   );
 }
+export default TeacherCard;

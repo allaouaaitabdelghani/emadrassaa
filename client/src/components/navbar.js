@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
@@ -8,10 +9,10 @@ export default function Navbar() {
         <span className="ml-3 text-2xl font-bold text-white">Madrasati</span>
       </div>
       <div className="flex items-center space-x-8">
-        <a href="#" className="text-white hover:text-gray-300 text-lg font-medium">Home</a>
-        <a href="#" className="text-white hover:text-gray-300 text-lg font-medium">Contact us</a>
-        <a href="#" className="text-white hover:text-gray-300 text-lg font-medium">Teachers</a>
-        <a href="#" className="text-white hover:text-gray-300 text-lg font-medium">Courses</a>
+        <Link to="/" className="text-white hover:text-gray-300 text-lg font-medium">Home</Link>
+        <Link to="/" onClick={() => { window.location.href = '/#contact'; }} className="text-white hover:text-gray-300 text-lg font-medium">Contact us</Link>
+        <a href="#teachers" className="text-white hover:text-gray-300 text-lg font-medium">Teachers</a>
+        <a href="#courses" className="text-white hover:text-gray-300 text-lg font-medium">Courses</a>
       </div>
       <div className="flex items-center">
         <img
