@@ -1,68 +1,56 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X, Home, BookOpen, Users, Settings, LogOut } from 'lucide-react';
+import React from "react";
+import { Home, BookOpen, HelpCircle, LogOut } from "lucide-react";
+import { Link } from "react-router-dom";
 
-function Sidebar() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const menuItems = [
-    { icon: Home, label: 'Home', path: '/dashboard' },
-    { icon: BookOpen, label: 'Courses', path: '/courses' },
-    { icon: Users, label: 'Teachers', path: '/teachers' },
-    { icon: Settings, label: 'Settings', path: '/settings' },
-  ];
-
+// Sidebar component with navigation links
+function Sidebar({ open, setOpen }) {
   return (
     <>
-      {/* Mobile Menu Button */}
-      <button 
-        className="lg:hidden fixed top-4 left-4 z-50 p-2 rounded-md bg-[#002b4d] text-white"
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      {/* Mobile backdrop - only visible when sidebar is open on mobile */}
+      {open && (
+        <div
+          className="fixed inset-0 z-40 bg-gray-600 bg-opacity-75 md:hidden"
+          onClick={() => setOpen(false)}
+        ></div>
+      )}
+      {/* Sidebar container with dark blue background */}
+      <div
+        className={`fixed inset-y-0 left-0 z-50 flex w-64 flex-col bg-[#002b4d] transition-transform duration-300 ease-in-out md:relative md:translate-x-0 ${
+          open ? "translate-x-0" : "-translate-x-full"
+        }`}
       >
-        {isMobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-      </button>
-
-      {/* Sidebar */}
-      <aside className={`
-        fixed top-0 left-0 h-full bg-[#002b4d] text-white transition-transform duration-300 ease-in-out z-40
-        ${isMobileMenuOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-        w-64
-      `}>
-        <div className="p-6">
-          <div className="flex items-center mb-8">
-            <img src="/Vector.svg" alt="Madrasati" className="h-8 sm:h-10" />
-            <span className="ml-2 sm:ml-3 text-xl sm:text-2xl font-bold">Madrasati</span>
-          </div>
-
-          <nav className="space-y-2">
-            {menuItems.map((item, index) => (
-              <Link
-                key={index}
-                to={item.path}
-                className="flex items-center px-4 py-3 text-sm sm:text-base rounded-lg hover:bg-white/10 transition-colors"
-              >
-                <item.icon className="h-5 w-5 sm:h-6 sm:w-6 mr-3" />
-                {item.label}
-              </Link>
-            ))}
-          </nav>
-
-          <div className="absolute bottom-0 left-0 right-0 p-6">
-            <button className="flex items-center w-full px-4 py-3 text-sm sm:text-base rounded-lg hover:bg-white/10 transition-colors">
-              <LogOut className="h-5 w-5 sm:h-6 sm:w-6 mr-3" />
-              Logout
-            </button>
+        {/* Logo section at the top of sidebar */}
+        <div className="flex h-24 items-center px-6">
+          <div className="flex items-center">
+            <img src="/Vector.svg" alt="Logo" width={40} height={40} className="mr-2" />
+            <h1 className="text-2xl font-bold text-white">Madrasati</h1>
           </div>
         </div>
-      </aside>
-
-      {/* Overlay for mobile */}
-      {isMobileMenuOpen && (
-        <div 
-          className="fixed inset-0 bg-black/50 lg:hidden z-30"
-          onClick={() => setIsMobileMenuOpen(false)}
-        />
-      )}
+        {/* Navigation menu section */}
+        <nav className="flex-1 space-y-2 px-6">
+          <div className="space-y-6">
+            <Link to="/dashboard" className="flex items-center text-white">
+              <Home className="mr-4 h-5 w-5" />
+              <span>Profile</span>
+            </Link>
+            <Link to="/dashboard3" className="flex items-center text-white">
+              <BookOpen className="mr-4 h-5 w-5" />
+              <span>my courses</span>
+            </Link>
+            <Link to="/dashboard2" className="flex items-center text-white">
+              <HelpCircle className="mr-4 h-5 w-5" />
+              <span>contact us</span>
+            </Link>
+          </div>
+        </nav>
+        {/* Logout button at the bottom of sidebar */}
+        <div className="px-6 py-8">
+          <button className="flex items-center text-white">
+            <LogOut className="mr-4 h-5 w-5" />
+            <span>log out</span>
+          </button>
+        </div>
+      </div>
     </>
   );
 }

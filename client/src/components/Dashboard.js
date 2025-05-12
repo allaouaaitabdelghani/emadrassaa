@@ -11,11 +11,13 @@ function Dashboard() {
   const location = useLocation();
   
   return (
-    // Main container with dark gray background and flex layout
-    <div className="flex min-h-screen bg-gray-800">
+    // Main container with light background and flex layout
+    <div className="flex min-h-screen bg-gray-50">
       {/* Sidebar component with props for controlling its visibility */}
       <Sidebar open={sidebarOpen} setOpen={setSidebarOpen} />
-      <div className="flex-1 overflow-y-auto">
+      
+      {/* Main content area */}
+      <div className="flex-1 flex flex-col overflow-hidden">
         {/* Show ContactSection when on /contact route, otherwise show MainContent */}
         {location.pathname === "/contact" ? (
           <ContactSection />

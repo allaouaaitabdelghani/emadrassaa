@@ -1,20 +1,25 @@
 import React from "react";
-import { Play } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 // ContinueBanner component for returning to last watched video
 function ContinueBanner() {
   return (
-    <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6">
-      <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-        <div className="text-center sm:text-left">
-          <h3 className="text-lg sm:text-xl font-bold text-[#002b4d] mb-2">Continue Learning</h3>
-          <p className="text-gray-600 text-sm sm:text-base">Pick up where you left off in your last course</p>
+    // Banner container with dark blue background and rounded corners
+    <div className="overflow-hidden rounded-lg bg-[#002b4d] shadow-md">
+      {/* Banner content with flexible layout - column on mobile, row on larger screens */}
+      <div className="flex flex-col items-start justify-between gap-4 p-6 md:flex-row md:items-center">
+        {/* Banner text that takes available space */}
+        <div className="flex-1">
+          <p className="text-lg font-medium text-white">
+            Continue where you left off! Click here to return to your last watched video
+          </p>
         </div>
-        <button className="flex items-center justify-center bg-[#002b4d] text-white px-4 py-2 rounded-md text-sm sm:text-base font-medium hover:bg-[#001f3d] transition-colors">
-          <Play className="h-4 w-4 sm:h-5 sm:w-5 mr-2" />
-          Continue
-        </button>
+        {/* Call-to-action button with pill shape */}
+        <Link to="/video/last-watched" className="inline-flex items-center rounded-full bg-white px-4 py-2 font-medium text-[#002b4d]">
+          {/* Right arrow icon with spacing */}
+          <ArrowRight className="mr-2 h-4 w-4" /> WATCH NOW
+        </Link>
       </div>
     </div>
   );
