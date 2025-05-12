@@ -15,6 +15,9 @@ import Sidebar from "./components/Sidebar";
 import ContactSection from "./components/ContactSection";
 import "./App.css";
 import Dashboard3 from "components/Dashboard3";
+import Teacher from "./components/teacher";
+
+
 
 function App() {
   return (
@@ -29,6 +32,7 @@ function App() {
           <Route path="/main" element={<MainContent />} />
           <Route path="/video/last-watched" element={<div><ContinueBanner /></div>} />
           <Route path="/contact" element={<ContactSection />} />
+          <Route path="/teacher" element={<Teacher />} />
         </Routes>
       </div>
     </Router>

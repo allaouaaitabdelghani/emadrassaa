@@ -28,9 +28,9 @@ function LandingPage() {
 
             <nav className="w-2/4 flex justify-center">
               <div className="flex items-center space-x-12">
-                <Link to="/" className="text-white hover:text-gray-300 text-lg font-medium">Home</Link>
-                <Link to="/contact" className="text-white hover:text-gray-300 text-lg font-medium">Contact us</Link>
-                <Link to="/teachers" className="text-white hover:text-gray-300 text-lg font-medium">Teachers</Link>
+                <a href="#" className="text-white hover:text-gray-300 text-lg font-medium">Home</a>
+                <a href="#contact" className="text-white hover:text-gray-300 text-lg font-medium">Contact us</a>
+                <Link to="/teacher" className="text-white hover:text-gray-300 text-lg font-medium">Teachers</Link>
                 <Link to="/courses" className="text-white hover:text-gray-300 text-lg font-medium">Courses</Link>
               </div>
             </nav>
@@ -329,7 +329,7 @@ function LandingPage() {
         </section>
 
         {/* Contact Us section */}
-        <section className="py-16 bg-[#00457C]">
+        <section id="contact" className="py-16 bg-[#00457C]">
           <div className="container mx-auto px-4">
             <div className="flex flex-col lg:flex-row gap-8">
               {/* Left Side - Contact Form */}
