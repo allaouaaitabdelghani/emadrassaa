@@ -1,8 +1,39 @@
-import React from "react"
+import React, { useRef } from "react"
 import { Search, ArrowLeft, ArrowRight, Twitter, Facebook, Instagram, Linkedin, Star, Clock, Users } from "lucide-react"
 import Navbar3 from "./navbar3"
+import { Link } from "react-router-dom"
+
+const courses = [
+  { title: "Advanced Mathematics", instructor: "Sean Maguire", price: "00.00 DA", image: "/course1.jpg", rating: 4.8, duration: "12 weeks", students: 120 },
+  { title: "Physics Fundamentals", instructor: "Sean Maguire", price: "00.00 DA", image: "/course2.jpg", rating: 4.7, duration: "10 weeks", students: 95 },
+  { title: "Chemistry Basics", instructor: "Steve Carell", price: "00.00 DA", image: "/course3.jpg", rating: 4.9, duration: "8 weeks", students: 150 },
+  { title: "Algorithms", instructor: "Sean Maguire", price: "00.00 DA", image: "/algorithms.jpg", rating: 4.8, duration: "14 weeks", students: 110 },
+  { title: "Spanish", instructor: "Steve Carell", price: "00.00 DA", image: "/spanish.jpg", rating: 4.6, duration: "9 weeks", students: 80 },
+  { title: "Algebra", instructor: "Severus Snape", price: "00.00 DA", image: "/algebra.jpg", rating: 4.7, duration: "11 weeks", students: 100 },
+  { title: "Japanese", instructor: "Walter White", price: "00.00 DA", image: "/japanese.jpg", rating: 4.5, duration: "10 weeks", students: 70 },
+  { title: "Anatomy", instructor: "Steve Carell", price: "00.00 DA", image: "/anatomy.jpg", rating: 4.9, duration: "7 weeks", students: 60 },
+  { title: "Philosophy", instructor: "Henry Bathes", price: "00.00 DA", image: "/philosophy.jpg", rating: 4.8, duration: "13 weeks", students: 90 },
+  { title: "Pharmacy", instructor: "Severus Snape", price: "00.00 DA", image: "/pharmacy.jpg", rating: 4.7, duration: "12 weeks", students: 85 },
+  { title: "Finance", instructor: "Steve Carell", price: "00.00 DA", image: "/finance.jpg", rating: 4.6, duration: "10 weeks", students: 75 },
+  { title: "Architecture", instructor: "Adam Bell", price: "00.00 DA", image: "/architecture.jpg", rating: 4.8, duration: "15 weeks", students: 65 },
+  { title: "AI", instructor: "Sean Maguire", price: "00.00 DA", image: "/ai.jpg", rating: 4.9, duration: "16 weeks", students: 130 },
+  { title: "Biology", instructor: "Steve Carell", price: "00.00 DA", image: "/biology.jpg", rating: 4.7, duration: "9 weeks", students: 95 },
+  { title: "History", instructor: "Adam Bell", price: "00.00 DA", image: "/history.jpg", rating: 4.5, duration: "8 weeks", students: 60 },
+  { title: "Cyber Security", instructor: "Henry Bathes", price: "00.00 DA", image: "/cybersecurity.jpg", rating: 4.8, duration: "14 weeks", students: 120 },
+  { title: "Python", instructor: "Steve Carell", price: "00.00 DA", image: "/python.jpg", rating: 4.9, duration: "10 weeks", students: 140 },
+];
 
 export default function Course() {
+  const scrollRef = useRef(null);
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollTo = direction === 'left' ? scrollLeft - clientWidth : scrollLeft + clientWidth;
+      scrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
+    }
+  };
+
   return (
     <main className="min-h-screen flex flex-col">
       <Navbar3 />
@@ -28,111 +59,44 @@ export default function Course() {
       {/* Recommended Courses */}
       <section className="py-12 px-6 md:px-16">
         <h2 className="text-3xl font-bold text-center mb-12 text-[#002642]">Recommended cources</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {/* Course Card 1 */}
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <img
-              src="/course1.jpg"
-              alt="Course 1"
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-800">Advanced Mathematics</h3>
-              <p className="mt-2 text-gray-600">
-                Master complex mathematical concepts and problem-solving techniques.
-              </p>
-              <div className="mt-4 flex items-center justify-between">
-                <div className="flex items-center">
-                  <Star className="h-5 w-5 text-yellow-400" />
-                  <span className="ml-1 text-gray-600">4.8</span>
-                </div>
-                <div className="flex items-center">
-                  <Clock className="h-5 w-5 text-gray-400" />
-                  <span className="ml-1 text-gray-600">12 weeks</span>
-                </div>
-                <div className="flex items-center">
-                  <Users className="h-5 w-5 text-gray-400" />
-                  <span className="ml-1 text-gray-600">120 students</span>
-                </div>
-              </div>
-              <button className="mt-4 w-full bg-[#002642] text-white py-2 rounded-md hover:bg-[#001f3d] transition-colors">
-                Enroll Now
-              </button>
-            </div>
-          </div>
-
-          {/* Course Card 2 */}
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <img
-              src="/course2.jpg"
-              alt="Course 2"
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-800">Physics Fundamentals</h3>
-              <p className="mt-2 text-gray-600">
-                Learn the core principles of physics through practical experiments.
-              </p>
-              <div className="mt-4 flex items-center justify-between">
-                <div className="flex items-center">
-                  <Star className="h-5 w-5 text-yellow-400" />
-                  <span className="ml-1 text-gray-600">4.7</span>
-                </div>
-                <div className="flex items-center">
-                  <Clock className="h-5 w-5 text-gray-400" />
-                  <span className="ml-1 text-gray-600">10 weeks</span>
-                </div>
-                <div className="flex items-center">
-                  <Users className="h-5 w-5 text-gray-400" />
-                  <span className="ml-1 text-gray-600">95 students</span>
-                </div>
-              </div>
-              <button className="mt-4 w-full bg-[#002642] text-white py-2 rounded-md hover:bg-[#001f3d] transition-colors">
-                Enroll Now
-              </button>
-            </div>
-          </div>
-
-          {/* Course Card 3 */}
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <img
-              src="/course3.jpg"
-              alt="Course 3"
-              className="w-full h-48 object-cover"
-            />
-            <div className="p-6">
-              <h3 className="text-xl font-semibold text-gray-800">Chemistry Basics</h3>
-              <p className="mt-2 text-gray-600">
-                Explore the fascinating world of chemical reactions and elements.
-              </p>
-              <div className="mt-4 flex items-center justify-between">
-                <div className="flex items-center">
-                  <Star className="h-5 w-5 text-yellow-400" />
-                  <span className="ml-1 text-gray-600">4.9</span>
-                </div>
-                <div className="flex items-center">
-                  <Clock className="h-5 w-5 text-gray-400" />
-                  <span className="ml-1 text-gray-600">8 weeks</span>
-                </div>
-                <div className="flex items-center">
-                  <Users className="h-5 w-5 text-gray-400" />
-                  <span className="ml-1 text-gray-600">150 students</span>
-                </div>
-              </div>
-              <button className="mt-4 w-full bg-[#002642] text-white py-2 rounded-md hover:bg-[#001f3d] transition-colors">
-                Enroll Now
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="flex justify-between mt-12">
-          <button className="flex items-center bg-[#002642] text-white px-6 py-2 rounded-md">
-            <ArrowLeft size={16} className="mr-2" />
-            Previous
+        <div className="relative">
+          <button onClick={() => scroll('left')} className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-[#002642] rounded-full p-2 shadow hover:bg-gray-100">
+            <ArrowLeft className="h-6 w-6 text-[#002642]" />
           </button>
-          <button className="flex items-center bg-[#002642] text-white px-6 py-2 rounded-md">
-            Next
-            <ArrowRight size={16} className="ml-2" />
+          <div ref={scrollRef} className="overflow-x-auto flex gap-6 pb-4 scroll-smooth no-scrollbar">
+            {courses.map((course, idx) => (
+              <div key={idx} className="min-w-[320px] max-w-xs bg-white rounded-lg shadow-md overflow-hidden flex-shrink-0">
+                <img
+                  src={course.image}
+                  alt={course.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-800">{course.title}</h3>
+                  <p className="mt-2 text-gray-600">Instructor: {course.instructor}</p>
+                  <div className="mt-4 flex items-center justify-between">
+                    <div className="flex items-center">
+                      <Star className="h-5 w-5 text-yellow-400" />
+                      <span className="ml-1 text-gray-600">{course.rating}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Clock className="h-5 w-5 text-gray-400" />
+                      <span className="ml-1 text-gray-600">{course.duration}</span>
+                    </div>
+                    <div className="flex items-center">
+                      <Users className="h-5 w-5 text-gray-400" />
+                      <span className="ml-1 text-gray-600">{course.students} students</span>
+                    </div>
+                  </div>
+                  <Link to="/course2" className="mt-4 w-full inline-block bg-[#002642] text-white py-2 rounded-md hover:bg-[#001f3d] transition-colors text-center">
+                    Enroll Now
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+          <button onClick={() => scroll('right')} className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white border border-[#002642] rounded-full p-2 shadow hover:bg-gray-100">
+            <ArrowRight className="h-6 w-6 text-[#002642]" />
           </button>
         </div>
       </section>

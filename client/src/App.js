@@ -17,8 +17,8 @@ import "./App.css";
 import Dashboard3 from "components/Dashboard3";
 import Teacher from "./components/teacher";
 import Teacher2 from "./components/teacher2";
-import Course from "./components/course";
-
+  import Course from "./components/course";
+  import Course2 from "./components/course2";
 
 
 function App() {
@@ -37,7 +37,7 @@ function App() {
           <Route path="/teacher" element={<Teacher />} />
           <Route path="/teacher2" element={<Teacher2 />} />
           <Route path="/course" element={<Course />} />
-
+          <Route path="/course2" element={<Course2 />} />
         </Routes>
       </div>
     </Router>
