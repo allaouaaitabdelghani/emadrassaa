@@ -11,8 +11,10 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           {/* Logo and Brand */}
           <div className="flex items-center">
-            <img src="/Vector.svg" alt="Madrasati" className="h-8 sm:h-10" />
-            <span className="ml-3 text-xl sm:text-2xl font-bold text-white">Madrasati</span>
+            <Link to="/" className="flex items-center">
+              <img src="/Vector.svg" alt="Madrasati" className="h-8 sm:h-10" />
+              <span className="ml-2 text-xl sm:text-2xl font-bold text-white">Madrasati</span>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -27,12 +29,12 @@ export default function Navbar() {
             >
               Contact us
             </Link>
-            <a href="#teachers" className="text-white hover:text-gray-300 text-base lg:text-lg font-medium transition-colors">
+            <Link to="/teacher" className="text-white hover:text-gray-300 text-base lg:text-lg font-medium transition-colors">
               Teachers
-            </a>
-            <a href="#courses" className="text-white hover:text-gray-300 text-base lg:text-lg font-medium transition-colors">
+            </Link>
+            <Link to="/courses" className="text-white hover:text-gray-300 text-base lg:text-lg font-medium transition-colors">
               Courses
-            </a>
+            </Link>
           </div>
 
           {/* Profile Section */}
@@ -86,20 +88,20 @@ export default function Navbar() {
           >
             Contact us
           </Link>
-          <a 
-            href="#teachers" 
+          <Link 
+            to="/teacher" 
             className="block text-white hover:text-gray-300 text-base font-medium transition-colors"
             onClick={() => setIsMenuOpen(false)}
           >
             Teachers
-          </a>
-          <a 
-            href="#courses" 
+          </Link>
+          <Link 
+            to="/courses" 
             className="block text-white hover:text-gray-300 text-base font-medium transition-colors"
             onClick={() => setIsMenuOpen(false)}
           >
             Courses
-          </a>
+          </Link>
           <div className="flex items-center pt-4 border-t border-gray-700">
             <img
               className="h-8 w-8 rounded-full border-2 border-white"
